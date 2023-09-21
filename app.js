@@ -34,6 +34,11 @@ const playAudio = (path) => {
 
 const chooseDificult = () => {
 
+  POINTS = 0;
+  counter = INITIAL_TIME;
+  initialCounter = 4
+  document.documentElement.style.setProperty('--SIZE', '100%')
+
   const dificultyContainer = document.createElement('section');
   dificultyContainer.classList.add('dificultyContainer');
 
@@ -310,11 +315,6 @@ function stopGame() {
 
     endBtnsContainer.appendChild(btn);
   })
-
-  POINTS = 0;
-  counter = INITIAL_TIME;
-  initialCounter = 4
-  document.documentElement.style.setProperty('--SIZE', '100%')
 
   gameOverContainer.appendChild(titleContainer)
   gameOverContainer.appendChild(ptsContainer)
