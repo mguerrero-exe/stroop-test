@@ -1,0 +1,407 @@
+:root {
+  --BG_COLOR: #181f31;
+  --BD_COLOR: #425994;
+  --BG_TRANSPARENCY: #42599480;
+  --RED: #FF0000;
+  --BLUE: #0066FF;
+  --GREEN: #66FF66;
+  --PURPLE: #8844FF;
+  --YELLOW: #FFFF00;
+  --ORANGE: #FF8833;
+  --SIZE: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 26px;
+}
+
+main {
+  background-color: var(--BG_COLOR);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  flex-flow: row nowrap;
+}
+
+p {
+  font-size: 24px;
+}
+
+button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#start {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  color: var(--GREEN);
+  border: 1px solid var(--GREEN);
+  background-color: transparent;
+  transition: background-color .2s;
+  cursor: pointer;
+}
+
+#start:is(:hover, :active) {
+  background-color: #66ff6640;
+}
+
+.btnWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  flex-flow: row wrap;
+  margin-top: 130px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.dificultyBtn {
+  padding: 10px 20px;
+  border: 1px solid var(--BD_COLOR);
+  background-color: transparent;
+  border-radius: 10px;
+  color: #FFF;
+  transition: background-color .2s;
+  cursor: pointer;
+}
+
+.dificultyBtn:is(:hover, :active) {
+  background-color: var(--BG_TRANSPARENCY);
+}
+
+.countDownContainer {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counterText {
+  font-size: 120px;
+  font-weight: 500;
+  color: #FFF;
+  transform-origin: center;
+  animation: bounce .2s;
+}
+
+@keyframes bounce {
+  from {
+    scale: 1.5;
+  } to {
+    scale: 1;
+  }
+}
+
+.board {
+  width: calc(100% - 150px);
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+
+.timerContainer {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  border-left: 1px solid var(--BD_COLOR);
+  box-sizing: border-box;
+}
+
+.timerProgressBarContainer {
+  width: 100%;
+  height: calc(100dvh - 250px);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.timerProgressBar {
+  height: 100%;
+  width: 10px;
+  background-color: #aaa;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+
+.timerProgress {
+  width: 100%;
+  background-color: #66FF66;
+  height: var(--SIZE);
+  transition: height 1s linear, background-color 5s linear;
+}
+
+.counterContainer {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+  border-top: 1px solid var(--BD_COLOR);
+  border-bottom: 1px solid var(--BD_COLOR);
+  box-sizing: border-box;
+}
+
+.stopGameContainer {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stopGameBtn {
+  color: #FFF;
+  border: 1px solid #FF0000;
+  padding: 10px 20px;
+  background-color: transparent;
+  border-radius: 50px;
+  transition: background-color .2s;
+  cursor: pointer;
+}
+
+.stopGameBtn:is(:hover, :active) {
+  background-color: #FF000080;
+}
+
+.colorWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.colorName {
+  font-weight: 700;
+  font-size: 36px;
+}
+
+.buttonsWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
+  gap: 10px;
+  justify-content: center;
+  width: 80%;
+}
+
+.colorBtn {
+  padding: 15px 30px;
+  background-color: transparent;
+  border: 1px solid var(--BD_COLOR);
+  border-radius: 50px;
+  min-width: 200px;
+  transition: background-color .2s;
+  cursor: pointer;
+  place-self: center;
+}
+
+.colorBtn:is(:hover, :active) {
+  background-color: var(--BG_TRANSPARENCY);
+}
+
+.colorBtn.ot:nth-child(1) {
+  margin-right: 10px;
+}
+.colorBtn.ot:nth-child(2) {
+  margin-left: 10px;
+}
+
+.answeredContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.answerText {
+  color: #FFF;
+  font-size: 36px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: calc(50% + 200px);
+  left: calc(50% - 150px);
+}
+
+.answerEmoji {
+  display: inline;
+  width: 40px;
+  margin-left: 10px;
+}
+
+.gameOverContainer {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+
+.titleContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.titleText {
+  color: #FFF;
+  font-size: 48px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.ptsContainer {
+  margin: 50px 0;
+}
+
+.pts {
+  color: #FFF;
+}
+
+.endBtnsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.endBtn {
+  padding: 15px 30px;
+  background-color: transparent;
+  border: 1px solid var(--BD_COLOR);
+  color: var(--BD_COLOR);
+  border-radius: 50px;
+  min-width: 200px;
+  transition: background-color .2s;
+  margin: 0 20px;
+  cursor: pointer;
+}
+
+.endBtn:is(:hover, :active) {
+  background-color: var(--BG_TRANSPARENCY);
+}
+
+@media (width <= 720px) {
+  main {
+    flex-flow: column nowrap;
+  }
+
+  .board {
+    width: 100%;
+    height: calc(100dvh - 100px);
+  }
+
+  .buttonsWrapper {
+    grid-template-columns: repeat(auto-fit, minmax(150px, max-content));
+    gap: 10px;
+    width: 90%;
+  }
+
+  .colorBtn {
+    padding: 10px 20px;
+    border-radius: 40px;
+    font-size: 24px;
+    min-width: 150px;
+  }
+
+  .timerContainer {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    border: none;
+    border-top: 1px solid var(--BD_COLOR);
+  }
+
+  .timerProgressBarContainer {
+    width: 100%;
+    height: 60px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
+    border-bottom: 1px solid var(--BD_COLOR);
+  }
+  
+  .timerProgressBar {
+    height: 10px;
+    width: 100%;
+    justify-content: flex-start;
+    flex-flow: row nowrap;
+  }
+
+  .timerProgress {
+    width: var(--SIZE);
+    height: 100%;
+    transition: width 1s linear, background-color 5s linear;
+  }
+
+  .counterContainer {
+    width: calc(100% - 150px);
+    height: 80px;
+    border-top: none;
+    border-bottom: none;
+    border-right: 1px solid var(--BD_COLOR);
+  }
+  
+  .answerText {
+    font-size: 28px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+  
+  .answerEmoji {
+    display: inline;
+    width: 40px;
+    margin-left: 10px;
+  }
+  
+  .stopGameContainer {
+    width: 150px;
+    height: 80px;
+  }
+
+  .endBtnsContainer {
+    flex-flow: column;
+  }
+
+  .endBtn {
+    margin: 10px 0;
+  }
+
+  .titleText {
+    font-size: 36px;
+  }
+  
+}
